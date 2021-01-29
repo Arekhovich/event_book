@@ -37,5 +37,5 @@ class Event(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name='user_event')
     date_event = models.DateField()
     time_start = models.TimeField()
-    time_finish = models.TimeField()
+    time_finish = models.TimeField(default='23:59:59')
     type_of_remind = models.ForeignKey(TypeReminder, on_delete=models.CASCADE, related_name='reminder_event')
