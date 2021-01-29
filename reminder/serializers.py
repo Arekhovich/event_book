@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.serializers import ModelSerializer
 
-from reminder.models import MyUser, Event
+from reminder.models import MyUser, Event, CountryHoliday
 
 
 class UserSerializer(ModelSerializer):
@@ -32,3 +32,7 @@ class EventSerializer(ModelSerializer):
         fields = "__all__"
 
 
+class HolidaySerializer(ModelSerializer):
+    class Meta:
+        model = CountryHoliday
+        fields = ('holidays', 'holiday_begin', 'holiday_end',)

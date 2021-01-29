@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'reminder',
     'rest_framework',
+    'rest_auth',
     'rest_framework.authtoken',
 ]
 
@@ -123,3 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'reminder.MyUser'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'e.orechovich92@gmail.com'
+EMAIL_HOST_PASSWORD = 'vjzyjdfzgjxnf92'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
