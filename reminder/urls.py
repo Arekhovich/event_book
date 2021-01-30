@@ -8,6 +8,6 @@ urlpatterns = [
     path('yourevents', YourEvents.as_view()),
     path('rest-auth/', include('rest_auth.urls')),
     path('register', RegisterAPI.as_view(), name='register'),
-    path('create_token', CreateToken.as_view()),
+    path('create_token', CreateToken.as_view(), name='create-token'),
     path("", MainPage.as_view(), name="the-main-page"),
 ]
