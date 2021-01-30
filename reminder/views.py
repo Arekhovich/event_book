@@ -1,4 +1,4 @@
-from json import dump
+from datetime import date
 
 from django.core.mail import send_mail
 from django.http import HttpResponse
@@ -12,14 +12,15 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.contrib.auth.models import auth
-
 from reminder.models import Event, MyUser, CountryHoliday
-from reminder.serializers import RegisterSerializer, UserSerializer, EventSerializer, HolidaySerializer
+from reminder.serializers import RegisterSerializer, UserSerializer, EventSerializer, HolidaySerializer, \
+    MonthEventSerializer
 
 
 class MainPage(View):
     def page(self):
         return HttpResponse('Hello, user')
+
 
 class RegisterAPI(GenericAPIView):
     serializer_class = RegisterSerializer
@@ -28,9 +29,9 @@ class RegisterAPI(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-        return Response({
-        "user": UserSerializer(user, context=self.get_serializer_context()).data,
-        }, status=status.HTTP_201_CREATED)
+        return Response({"user": UserSerializer(user, context=self.get_serializer_context()).data},
+                        status=status.HTTP_201_CREATED)
+
 
 class CreateEvent(ListCreateAPIView):
     authentication_classes = [TokenAuthentication]
@@ -38,7 +39,12 @@ class CreateEvent(ListCreateAPIView):
     serializer_class = EventSerializer
     queryset = Event.objects.all()
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
 class CreateToken(APIView):
+
     def post(self, request):
         login = request.data.get('login')
         pwd = request.data.get('pwd')
@@ -58,10 +64,13 @@ class CreateToken(APIView):
 class YourEvents(generics.ListAPIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
-    def get(self, request, *args, **kwargs):
-        events = Event.objects.filter(user_id=request.user.id)
-        holidays = CountryHoliday.objects.filter(country=request.user.country)
-        return Response({'events': events, 'holidays': holidays}, status=status.HTTP_200_OK)
+    serializer_class = MonthEventSerializer
+    queryset = Event.objects.all()
+
+    def get_queryset(self):
+        events = Event.objects.filter(user_id=self.request.user.id)
+        month_events = events.filter(date_event=date.today())
+        return month_events
 
 
 class YourHolidays(generics.ListAPIView):
@@ -69,7 +78,8 @@ class YourHolidays(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = HolidaySerializer
     queryset = CountryHoliday.objects.all()
+
     def get_queryset(self):
         holidays = CountryHoliday.objects.filter(country=self.request.user.country_id)
-        return holidays
-
+        month_holidays = holidays.filter(holiday_begin__month=date.today().month)
+        return month_holidays

@@ -1,5 +1,4 @@
-from rest_framework import serializers
-from rest_framework.authtoken.models import Token
+from django.forms import CharField
 from rest_framework.serializers import ModelSerializer
 
 from reminder.models import MyUser, Event, CountryHoliday
@@ -29,10 +28,17 @@ class RegisterSerializer(ModelSerializer):
 class EventSerializer(ModelSerializer):
     class Meta:
         model = Event
-        fields = "__all__"
+        fields = ('event', 'date_event', 'time_start', 'type_of_remind',)
+
 
 
 class HolidaySerializer(ModelSerializer):
     class Meta:
         model = CountryHoliday
         fields = ('holidays', 'holiday_begin', 'holiday_end',)
+
+
+class MonthEventSerializer(ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ('event', 'date_event', 'time_start', 'time_finish', 'type_of_remind',)
