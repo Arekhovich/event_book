@@ -16,7 +16,9 @@ class MyUser(AbstractUser):
                                 blank=True, related_name='country_user',
                                 verbose_name='Страна'
                                 )
+    USERNAME_FIELD = 'email'
     email = models.EmailField(unique=True, blank=False)
+    REQUIRED_FIELDS = []
 
 
 class CountryHoliday(models.Model):
@@ -26,6 +28,7 @@ class CountryHoliday(models.Model):
     holidays = models.TextField(null=True)
     holiday_begin = models.DateField(null=True)
     holiday_end = models.DateField(null=True)
+
 
 class Event(models.Model):
     TYPE_REMIND = [
@@ -52,6 +55,3 @@ class Event(models.Model):
             datetime_event = datetime.datetime.combine(self.date_event, self.time_start)
             self.time_remind = datetime_event - self.remind
         super().save(**kwargs)
-
-
-

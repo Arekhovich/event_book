@@ -1,9 +1,6 @@
 from django.forms import CharField
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
-from django.db import models
-
 from reminder.models import MyUser, Event, CountryHoliday
 
 
@@ -34,18 +31,10 @@ class EventSerializer(ModelSerializer):
         fields = ('event', 'date_event', 'time_start', 'time_finish', 'remind',)
 
 
-
 class HolidaySerializer(ModelSerializer):
     class Meta:
         model = CountryHoliday
         fields = ('holidays', 'holiday_begin', 'holiday_end',)
-
-
-class MonthEventSerializer(ModelSerializer):
-    class Meta:
-        model = Event
-        fields = ('event', 'date_event', )
-
 
 
 class GroupByDayEventSerializer(serializers.ModelSerializer):
@@ -53,8 +42,6 @@ class GroupByDayEventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ['date_event', 'event']
 
-    # def get_event(self, obj):
-    #     events = Event.objects.filter(date_event=obj['date_event'])
-    #     event_serializer = MonthEventSerializer(events, many=True)
-    #     return event_serializer.data
+
+
 
