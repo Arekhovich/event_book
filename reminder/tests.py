@@ -35,6 +35,21 @@ class RestTest(APITestCase):
             response.json()['token']
         )
 
+    def test_bad_create_token(self):
+        url = reverse("create-token")
+        data = {
+            "login": 'badtest',
+            "email": 'badtest',
+            "pwd": self.pwd
+        }
+        response = self.client.post(
+            path=url,
+            data=dumps(data),
+            content_type="application/json"
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
     def test_get_event(self):
         url = reverse("create-token")
         data = {
