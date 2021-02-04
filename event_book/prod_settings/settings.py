@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import warnings
+import os
 from django.urls import path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,6 +87,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get("POSTGRES_DB"),
+#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+#         'USER': os.environ.get("POSTGRES_USER"),
+#         'PORT': '5432',
+#         'HOST': 'db'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
