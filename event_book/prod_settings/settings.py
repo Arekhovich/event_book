@@ -28,7 +28,7 @@ SECRET_KEY = 'rtb*w^093ygy%(2n_px8r!ky!dh^evcub7*3s+_%kc@7n2q=k^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.70.86.208']
 
 
 # Application definition
@@ -158,11 +158,15 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_ACCEPT_CONTENT = ['json', ]
 
-# CELERY_BEAT_SCHEDULE = {
-#     "task_one": {
-#         "task": "reminder.tasks.remind_event",
-#         "schedule": 3.0,
-#     },
-# }
+CELERY_BEAT_SCHEDULE = {
+    "task_one": {
+        "task": "reminder.tasks.remind_event",
+        "schedule": 3600.0,
+    },
+    "task_two": {
+        "task": "reminder.tasks.update_holidays",
+        "schedule": 31536000.0,
+    },
+}
 
 
