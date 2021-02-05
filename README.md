@@ -15,6 +15,8 @@ data = {
 }
 response = post('https://pythonpetproject.monster/event/register', data=data)
 ```
+Country - from 3 to 224
+
 #### Create token
 ```
 data = {
@@ -29,8 +31,21 @@ You will receive the token to the email
 #### Add event (use your token in headers)
 ```
 headers = {'Authorization': 'Token 55b78141eb7795aba66d8bd20f93793b74a627dc'}
+data = {
+    'event': 'Suprize',
+    'date_event': '2021-02-05',
+    'time_start': '19:00'
+}
 response = post('https://pythonpetproject.monster/event/addevent', headers=headers)
 ```
+You can use in data time_end for your event and type_of_remind.
+Types of remind:
+1 - 1 hour reminder
+2 - 2 hour reminder
+3 - 3 hour reminder
+4 - week reminder
+5 - month reminder
+
 #### Getting a list of events for today (use your token in headers)
 ```
 headers = {'Authorization': 'Token 55b78141eb7795aba66d8bd20f93793b74a627dc'}
