@@ -58,7 +58,7 @@ class LoginUser(APIView):
 
 
 class CreateEvent(ListCreateAPIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = EventSerializer
     queryset = Event.objects.all()
