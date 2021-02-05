@@ -180,7 +180,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     "task_one": {
         "task": "reminder.tasks.remind_event",
-        "schedule": 3600.0,
+        "schedule": 180.0,
     },
     "task_two": {
         "task": "reminder.tasks.update_holidays",
