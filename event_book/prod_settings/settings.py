@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'event_book.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("POSTGRES_DB"),
-        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
-        'USER': os.environ.get("POSTGRES_USER"),
+        'NAME': 'event_db',
+        'PASSWORD': 'useruser',
+        'USER': 'katerina',
         'PORT': '5432',
-        'HOST': 'db'
+        'HOST': '34.70.86.208'
     }
 }
 
