@@ -26,9 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'rtb*w^093ygy%(2n_px8r!ky!dh^evcub7*3s+_%kc@7n2q=k^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+#
+# ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
+DEBUG = False
+
+ALLOWED_HOSTS = ['34.70.86.208', '127.0.0.1']
 
 
 # Application definition
@@ -80,23 +84,23 @@ WSGI_APPLICATION = 'event_book.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get("POSTGRES_DB"),
-#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
-#         'USER': os.environ.get("POSTGRES_USER"),
-#         'PORT': '5432',
-#         'HOST': 'db'
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'event_db',
+        'PASSWORD': 'useruser',
+        'USER': 'katerina',
+        'PORT': '5432',
+        'HOST': '127.0.0.1'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,6 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 AUTH_USER_MODEL = 'reminder.MyUser'
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'
