@@ -5,7 +5,7 @@ You can also get a list of holidays of the country that you indicated during reg
 ## Usage
 Event_book provides an API that gives you several ways to create and get your holidays and events.
 
-#### Register
+#### Register (https://pythonpetproject.monster/event/register)
 ```
 data = {
     "username": "exampleuser",
@@ -17,7 +17,7 @@ response = post("https://pythonpetproject.monster/event/register", data=data)
 ```
 Country - from 3 to 224
 
-#### Create token
+#### Create token(https://pythonpetproject.monster/event/create_token)
 ```
 data = {
     "login": "exampleuser",
@@ -28,7 +28,7 @@ response = post("https://pythonpetproject.monster/event/create_token", data=data
 ```
 You will receive the token to the email
 
-#### Login
+#### Login(https://pythonpetproject.monster/event/loginuser)
 ```
 data = {
     "email": "example@example.com",
@@ -37,7 +37,7 @@ data = {
 response = post("https://pythonpetproject.monster/event/loginuser", data=data)
 ```
 
-#### Add event (use your token in headers)
+#### Add event (https://pythonpetproject.monster/event/addevent) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 data = {
@@ -55,17 +55,17 @@ Types of remind:
 - timedelta(seconds=86400) - week reminder
 - timedelta(seconds=604800) - month reminder
 
-#### Getting a list of events for today (use your token in headers)
+#### Getting a list of events for today (pythonpetproject.monster/event/yourevents) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/yourevents", headers=headers)
 ```
-#### Getting a list of events for month (use your token in headers)
+#### Getting a list of events for month (pythonpetproject.monster/event/yourmonthevents) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/yourmonthevents", headers=headers)
 ```
-#### Getting a list of holidays for month (use your token in headers)
+#### Getting a list of holidays for month (pythonpetproject.monster/event/yourmonthevent) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/yourmonthevent", headers=headers)
