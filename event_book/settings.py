@@ -139,6 +139,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://cache://127.0.0.1:6379/1'
+    }
+}
+
 #warnings.filterwarnings('error', r"DateTimeField .* received a naive datetime", RuntimeWarning, r'django\.db\.models\.fields')
 
 # Static files (CSS, JavaScript, Images)
@@ -164,8 +171,8 @@ CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
 
-CELERY_BROKER_URL='redis://cache:6379'
-CELERY_RESULT_BACKEND='redis://cache:6379'
+BROKER_URL = 'amqp://guest@localhost//'
+CELERY_RESULT_BACKEND = 'amqp'
 CELERY_ACCEPT_CONTENT=['json']
 CELERY_TASK_SERIALIZER='json'
 CELERY_RESULT_SERIALIZER = 'json'
