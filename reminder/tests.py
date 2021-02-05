@@ -104,7 +104,7 @@ class RestTest(APITestCase):
         )
         client = RequestsClient()
         headers = {'Authorization': 'Token ' + Token.objects.get(user=self.user).key}
-        response = client.get('http://127.0.0.1:8000/event/yourevents/', headers=headers)
+        response = client.get('http://127.0.0.1:8000/event/yourevents', headers=headers)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_yourmonthevents(self):
@@ -121,7 +121,7 @@ class RestTest(APITestCase):
         )
         client = RequestsClient()
         headers = {'Authorization': 'Token ' + Token.objects.get(user=self.user).key}
-        response = client.get('http://127.0.0.1:8000/event/yourmonthevents/', headers=headers)
+        response = client.get('http://127.0.0.1:8000/event/yourmonthevents', headers=headers)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_holidays(self):
@@ -138,6 +138,6 @@ class RestTest(APITestCase):
         )
         client = RequestsClient()
         headers = {'Authorization': 'Token ' + Token.objects.get(user=self.user).key}
-        response = client.get('http://127.0.0.1:8000/event/holidays/', headers=headers)
+        response = client.get('http://127.0.0.1:8000/event/holidays', headers=headers)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
