@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
 
-from event_book.prod_settings import settings
+from event_book import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
