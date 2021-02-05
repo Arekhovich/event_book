@@ -125,10 +125,21 @@ USE_TZ = False
 
 warnings.filterwarnings('error', r"DateTimeField .* received a naive datetime", RuntimeWarning, r'django\.db\.models\.fields')
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://cache://127.0.0.1:6379/1'
+    }
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'reminder.MyUser'
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'
