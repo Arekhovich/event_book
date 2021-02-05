@@ -155,14 +155,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 AUTH_USER_MODEL = 'reminder.MyUser'
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = False
+
 
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'e.orechovich92@gmail.com'
-EMAIL_HOST_PASSWORD = 'vjzyjdfzgjxnf92'
+EMAIL_HOST_PASSWORD = 'vjzyjdfzgjxnf9230'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
