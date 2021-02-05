@@ -82,21 +82,14 @@ WSGI_APPLICATION = 'event_book.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("POSTGRES_DB"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'PORT': '5432',
+        'HOST': 'db'
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get("POSTGRES_DB"),
-#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
-#         'USER': os.environ.get("POSTGRES_USER"),
-#         'PORT': '5432',
-#         'HOST': 'db'
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
