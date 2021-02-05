@@ -1,8 +1,6 @@
 from datetime import datetime, timedelta
 
 from celery import shared_task
-from celery.schedules import crontab
-from celery.task import periodic_task
 from django.core.mail import send_mail
 from reminder.models import Event, Country, CountryHoliday
 import arrow
