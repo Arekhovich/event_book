@@ -47,7 +47,7 @@ data = {
 }
 response = post("https://pythonpetproject.monster/event/addevent", headers=headers)
 ```
-You can use in data time_end for your event and type_of_remind.
+You can use in data time_end for your event and remind.
 Types of remind:
 - timedelta(seconds=3600) - 1 hour reminder
 - timedelta(seconds=7200) - 2 hour reminder
