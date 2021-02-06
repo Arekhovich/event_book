@@ -68,11 +68,11 @@ response = get("https://pythonpetproject.monster/event/yourmonthevents", headers
 #### Getting a list of holidays for month (pythonpetproject.monster/event/yourmonthevent) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
-response = get("https://pythonpetproject.monster/event/yourmonthevent", headers=headers)
+response = get("https://pythonpetproject.monster/event/holidays", headers=headers)
 ```
 You can use params holiday_begin and you get holidays for year, month or day
 ```
 data = {"holiday_begin": "2022-08"}
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
-response = get("https://pythonpetproject.monster/event/yourmonthevents", headers=headers, data=data)
+response = get("https://pythonpetproject.monster/event/holidays", headers=headers, data=data)
 ```
