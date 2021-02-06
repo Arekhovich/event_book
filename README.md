@@ -45,7 +45,7 @@ data = {
     "date_event": "2021-02-05",
     "time_start": "19:00:00"
 }
-response = post("https://pythonpetproject.monster/event/addevent", headers=headers)
+response = post("https://pythonpetproject.monster/event/addevent", headers=headers, data=data)
 ```
 You can use in data time_end for your event and remind.
 Types of remind:
