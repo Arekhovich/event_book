@@ -15,7 +15,7 @@ def remind_event():
             timezone = tz = datetime.now() + timedelta(hours=3)
             if every_event.time_remind.timestamp() <= timezone.timestamp():
                 subject = 'Вам направлено напоминание о событии'
-                message = f'{every_event.user}, напоминаем Вам о следующем сохранненом событии. ' \
+                message = f'{every_event.user.username}, напоминаем Вам о следующем сохранненом событии. ' \
                           f'Событие: {every_event.event},' \
                           f'время начала: {every_event.time_start}, ' \
                           f'время окончания: {every_event.time_finish}.'
