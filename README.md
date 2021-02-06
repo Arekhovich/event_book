@@ -70,9 +70,9 @@ response = get("https://pythonpetproject.monster/event/yourmonthevents", headers
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/holidays", headers=headers)
 ```
-You can use params holiday_begin and you get holidays for year, month or day
+You can use params search and you get holidays for year, month or day
 ```
-data = {"holiday_begin": "2022-08"}
+params = {"search": "2022-08"}
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
-response = get("https://pythonpetproject.monster/event/holidays", headers=headers, data=data)
+response = get("https://pythonpetproject.monster/event/holidays", headers=headers, params=params)
 ```
