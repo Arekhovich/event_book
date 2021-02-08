@@ -55,17 +55,17 @@ Types of remind:
 - timedelta(seconds=86400) - week reminder
 - timedelta(seconds=604800) - month reminder
 
-#### Getting a list of events for today (pythonpetproject.monster/event/yourevents) (use your token in headers)
+#### Getting a list of events for today (https://pythonpetproject.monster/event/yourevents) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/yourevents", headers=headers)
 ```
-#### Getting a list of events for month (pythonpetproject.monster/event/yourmonthevents) (use your token in headers)
+#### Getting a list of events for month (https://pythonpetproject.monster/event/yourmonthevents) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/yourmonthevents", headers=headers)
 ```
-#### Getting a list of holidays for month (pythonpetproject.monster/event/yourmonthevent) (use your token in headers)
+#### Getting a list of holidays for month (https://pythonpetproject.monster/event/yourmonthevent) (use your token in headers)
 ```
 headers = {"Authorization": "Token 55b78141eb7795aba66d8bd20f93793b74a627dc"}
 response = get("https://pythonpetproject.monster/event/holidays", headers=headers)
